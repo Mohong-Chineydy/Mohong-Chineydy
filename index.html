@@ -2,671 +2,645 @@
 <html lang="zh-CN">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<title>墨虹 · MHO组织 | 个人主页</title>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<style>
-		* {
-		    margin: 0;
-		    padding: 0;
-		    box-sizing: border-box;
-		}
-		
-		body {
-		    font-family: 'Inter', sans-serif;
-		    background: #f5f7fc;
-		    color: #1a1f2e;
-		    line-height: 1.5;
-		    scroll-behavior: smooth;
-		}
-		
-		::-webkit-scrollbar {
-		    width: 6px;
-		}
-		::-webkit-scrollbar-track {
-		    background: #e9ecef;
-		    border-radius: 10px;
-		}
-		::-webkit-scrollbar-thumb {
-		    background: #2c3e50;
-		    border-radius: 10px;
-		}
-		::-webkit-scrollbar-thumb:hover {
-		    background: #1e2a36;
-		}
-		
-		.container {
-		    max-width: 1280px;
-		    margin: 0 auto;
-		    padding: 2rem 1.5rem;
-		}
-		
-		/* 卡片 - 纯白简洁风格 */
-		.card {
-		    background: #ffffff;
-		    border-radius: 1.5rem;
-		    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-		    transition: all 0.3s ease;
-		    border: 1px solid #eef2f6;
-		}
-		.card:hover {
-		    transform: translateY(-2px);
-		    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
-		    border-color: #dce3ec;
-		}
-		
-		/* 头部区域 */
-		.hero {
-		    display: flex;
-		    flex-wrap: wrap;
-		    gap: 2rem;
-		    align-items: stretch;
-		    justify-content: space-between;
-		    margin-bottom: 3rem;
-		    padding: 2rem 2rem;
-		    background: #ffffff;
-		    border: 1px solid #eef2f6;
-		}
-		.hero-info {
-		    flex: 2;
-		    min-width: 240px;
-		}
-		.hero-org {
-		    flex: 1.5;
-		    min-width: 260px;
-		    background: #f8fafd;
-		    border-radius: 1.2rem;
-		    padding: 1.2rem 1.5rem;
-		    border: 1px solid #e9edf2;
-		    transition: all 0.3s;
-		}
-		.hero-org:hover {
-		    border-color: #cbd5e1;
-		    background: #ffffff;
-		}
-		.hero-avatar {
-		    flex: 1;
-		    min-width: 170px;
-		    display: flex;
-		    flex-direction: column;
-		    align-items: center;
-		    gap: 1rem;
-		}
-		.avatar-img {
-		    width: 148px;
-		    height: 148px;
-		    border-radius: 50%;
-		    object-fit: cover;
-		    border: 3px solid #ffffff;
-		    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-		    transition: all 0.3s ease;
-		    background: #f0f2f5;
-		}
-		.avatar-img:hover {
-		    transform: scale(1.02);
-		    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-		}
-		.org-header {
-		    display: flex;
-		    align-items: center;
-		    gap: 0.9rem;
-		    margin-bottom: 1rem;
-		}
-		.org-svg-container {
-		    width: 52px;
-		    height: 52px;
-		    background: #ffffff;
-		    border-radius: 16px;
-		    padding: 8px;
-		    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-		    border: 1px solid #e9edf2;
-		}
-		.org-svg-container svg {
-		    width: 100%;
-		    height: 100%;
-		}
-		.org-svg-container svg g {
-		    stroke: #2c3e50;
-		}
-		.org-title {
-		    font-size: 1.5rem;
-		    font-weight: 700;
-		    color: #1a2c3e;
-		    letter-spacing: -0.3px;
-		}
-		.org-badge {
-		    display: inline-flex;
-		    align-items: center;
-		    gap: 0.4rem;
-		    background: #eef2f8;
-		    color: #2c3e50;
-		    padding: 0.25rem 1rem;
-		    border-radius: 60px;
-		    font-size: 0.7rem;
-		    font-weight: 500;
-		    margin-top: 0.3rem;
-		}
-		.greeting {
-		    display: inline-flex;
-		    align-items: center;
-		    gap: 0.5rem;
-		    background: #eef2f8;
-		    color: #2c3e50;
-		    padding: 0.35rem 1.2rem;
-		    border-radius: 60px;
-		    font-size: 0.8rem;
-		    font-weight: 500;
-		    margin-bottom: 1.2rem;
-		}
-		h1 {
-		    font-size: 3rem;
-		    font-weight: 800;
-		    color: #1a2c3e;
-		    margin-bottom: 0.5rem;
-		}
-		.tagline {
-		    font-size: 1.1rem;
-		    color: #5a6e8a;
-		    margin-bottom: 1.2rem;
-		    display: flex;
-		    align-items: center;
-		    gap: 0.75rem;
-		    flex-wrap: wrap;
-		}
-		.tagline i {
-		    color: #2c6e9e;
-		    font-size: 1rem;
-		}
-		.contact-buttons {
-		    display: flex;
-		    flex-wrap: wrap;
-		    gap: 1rem;
-		    margin-top: 1.5rem;
-		}
-		.btn {
-		    display: inline-flex;
-		    align-items: center;
-		    gap: 0.6rem;
-		    padding: 0.7rem 1.5rem;
-		    border-radius: 60px;
-		    font-weight: 600;
-		    text-decoration: none;
-		    transition: all 0.2s ease;
-		    font-size: 0.9rem;
-		    cursor: pointer;
-		}
-		.btn-primary {
-		    background: #1a2c3e;
-		    color: white;
-		    border: none;
-		    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-		}
-		.btn-primary:hover {
-		    background: #0f1e2c;
-		    transform: translateY(-2px);
-		    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-		}
-		.btn-outline {
-		    background: transparent;
-		    border: 1.5px solid #d0d8e4;
-		    color: #2c3e50;
-		}
-		.btn-outline:hover {
-		    border-color: #2c6e9e;
-		    background: #f8fafd;
-		    transform: translateY(-2px);
-		}
-		.btn-visit {
-		    background: #1a2c3e;
-		    color: white;
-		    border: none;
-		    justify-content: center;
-		    margin: 0.8rem 0;
-		    transition: all 0.3s;
-		}
-		.btn-visit:hover {
-		    background: #2c3e50;
-		    transform: translateY(-2px);
-		    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-		}
-		.grid-2col {
-		    display: grid;
-		    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-		    gap: 2rem;
-		    margin-bottom: 2.5rem;
-		}
-		.section-title {
-		    font-size: 1.4rem;
-		    font-weight: 700;
-		    margin-bottom: 1.5rem;
-		    display: flex;
-		    align-items: center;
-		    gap: 0.75rem;
-		    padding-bottom: 0.6rem;
-		    border-bottom: 2px solid #e9edf2;
-		    color: #1a2c3e;
-		}
-		.section-title i {
-		    width: 34px;
-		    height: 34px;
-		    display: inline-flex;
-		    align-items: center;
-		    justify-content: center;
-		    background: #eef2f8;
-		    border-radius: 10px;
-		    color: #2c6e9e;
-		    font-size: 1rem;
-		}
-		.skills-list {
-		    display: flex;
-		    flex-wrap: wrap;
-		    gap: 0.8rem;
-		    margin-top: 0.5rem;
-		}
-		.skill-badge {
-		    background: #f8fafd;
-		    padding: 0.55rem 1.3rem;
-		    border-radius: 60px;
-		    font-size: 0.85rem;
-		    font-weight: 500;
-		    color: #1a2c3e;
-		    border: 1px solid #e9edf2;
-		    transition: all 0.2s;
-		}
-		.skill-badge i {
-		    margin-right: 8px;
-		    color: #2c6e9e;
-		}
-		.skill-badge:hover {
-		    border-color: #cbd5e1;
-		    background: #ffffff;
-		    transform: translateY(-2px);
-		}
-		.project-grid {
-		    display: flex;
-		    flex-direction: column;
-		    gap: 1rem;
-		}
-		.project-item {
-		    background: #f8fafd;
-		    border-radius: 1.2rem;
-		    padding: 1.2rem 1.3rem;
-		    border: 1px solid #e9edf2;
-		    transition: all 0.2s;
-		    cursor: pointer;
-		}
-		.project-item:hover {
-		    border-color: #cbd5e1;
-		    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-		    transform: translateX(4px);
-		    background: #ffffff;
-		}
-		.project-item h4 {
-		    font-size: 1.1rem;
-		    font-weight: 700;
-		    margin-bottom: 0.5rem;
-		    display: flex;
-		    align-items: center;
-		    gap: 0.7rem;
-		    color: #1a2c3e;
-		}
-		.project-item h4 i {
-		    color: #2c6e9e;
-		}
-		.project-item p {
-		    font-size: 0.85rem;
-		    color: #5a6e8a;
-		    margin-bottom: 0.9rem;
-		    line-height: 1.45;
-		}
-		.project-link {
-		    display: inline-flex;
-		    align-items: center;
-		    gap: 0.5rem;
-		    font-size: 0.8rem;
-		    color: #2c6e9e;
-		    text-decoration: none;
-		    font-weight: 500;
-		    transition: gap 0.2s;
-		}
-		.project-link:hover {
-		    gap: 0.7rem;
-		    text-decoration: underline;
-		}
-		.contact-info {
-		    display: flex;
-		    flex-direction: column;
-		    gap: 1rem;
-		}
-		.contact-row {
-		    display: flex;
-		    align-items: center;
-		    gap: 1rem;
-		    padding: 0.7rem 0;
-		    border-bottom: 1px solid #eef2f6;
-		    transition: all 0.2s;
-		}
-		.contact-row:hover {
-		    transform: translateX(4px);
-		    border-bottom-color: #d0d8e4;
-		}
-		.contact-row i {
-		    width: 38px;
-		    height: 38px;
-		    display: inline-flex;
-		    align-items: center;
-		    justify-content: center;
-		    background: #f0f2f8;
-		    border-radius: 12px;
-		    font-size: 1.2rem;
-		    color: #2c6e9e;
-		}
-		.copy-btn {
-		    background: transparent;
-		    border: none;
-		    color: #7e8c9e;
-		    cursor: pointer;
-		    font-size: 0.7rem;
-		    margin-left: 0.5rem;
-		    transition: color 0.2s;
-		}
-		.copy-btn:hover {
-		    color: #2c6e9e;
-		}
-		.footer {
-		    text-align: center;
-		    margin-top: 3rem;
-		    padding-top: 1.8rem;
-		    border-top: 1px solid #eef2f6;
-		    font-size: 0.8rem;
-		    color: #7e8c9e;
-		}
-		.toast-message {
-		    position: fixed;
-		    bottom: 30px;
-		    left: 50%;
-		    transform: translateX(-50%);
-		    background: #1a2c3e;
-		    color: white;
-		    padding: 12px 24px;
-		    border-radius: 60px;
-		    font-size: 0.85rem;
-		    font-weight: 500;
-		    z-index: 1000;
-		    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-		    display: flex;
-		    align-items: center;
-		    gap: 10px;
-		    animation: slideUp 0.3s ease;
-		}
-		@keyframes slideUp {
-		    from {
-		        opacity: 0;
-		        transform: translateX(-50%) translateY(20px);
-		    }
-		    to {
-		        opacity: 1;
-		        transform: translateX(-50%) translateY(0);
-		    }
-		}
-		@media (max-width: 860px) {
-		    .hero {
-		        flex-direction: column;
-		        padding: 1.5rem;
-		    }
-		    .hero-org {
-		        order: 2;
-		    }
-		    .hero-avatar {
-		        order: 1;
-		    }
-		    .hero-info {
-		        order: 3;
-		    }
-		    h1 {
-		        font-size: 2.2rem;
-		    }
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>墨虹 · MHO组织 | 个人主页</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 你的所有 CSS 保持不变 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fc;
+            color: #1a1f2e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e9ecef;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c3e50;
+            border-radius: 10px;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            border: 1px solid #eef2f6;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: stretch;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+        }
+        .hero-info {
+            flex: 2;
+            min-width: 240px;
+        }
+        .hero-org {
+            flex: 1.5;
+            min-width: 260px;
+            background: #f8fafd;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #e9edf2;
+        }
+        .hero-org:hover {
+            border-color: #cbd5e1;
+            background: #ffffff;
+        }
+        .hero-avatar {
+            flex: 1;
+            min-width: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .avatar-img {
+            width: 148px;
+            height: 148px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            background: #f0f2f5;
+        }
+        .avatar-img:hover {
+            transform: scale(1.02);
+        }
+        .org-header {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .org-svg-container {
+            width: 52px;
+            height: 52px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 8px;
+            border: 1px solid #e9edf2;
+        }
+        .org-svg-container svg {
+            width: 100%;
+            height: 100%;
+        }
+        .org-svg-container svg g {
+            stroke: #2c3e50;
+        }
+        .org-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2c3e;
+        }
+        .org-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #eef2f8;
+            color: #2c3e50;
+            padding: 0.25rem 1rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 0.3rem;
+        }
+        .greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #eef2f8;
+            color: #2c3e50;
+            padding: 0.35rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a2c3e;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-size: 1.1rem;
+            color: #5a6e8a;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .tagline i {
+            color: #2c6e9e;
+        }
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #1a2c3e;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #0f1e2c;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #d0d8e4;
+            color: #2c3e50;
+        }
+        .btn-outline:hover {
+            border-color: #2c6e9e;
+            background: #f8fafd;
+            transform: translateY(-2px);
+        }
+        .btn-visit {
+            background: #1a2c3e;
+            color: white;
+            border: none;
+            justify-content: center;
+            margin: 0.8rem 0;
+        }
+        .btn-visit:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #e9edf2;
+            color: #1a2c3e;
+        }
+        .section-title i {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef2f8;
+            border-radius: 10px;
+            color: #2c6e9e;
+            font-size: 1rem;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .skill-badge {
+            background: #f8fafd;
+            padding: 0.55rem 1.3rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1a2c3e;
+            border: 1px solid #e9edf2;
+            transition: all 0.2s;
+        }
+        .skill-badge i {
+            margin-right: 8px;
+            color: #2c6e9e;
+        }
+        .skill-badge:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .project-item {
+            background: #f8fafd;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.3rem;
+            border: 1px solid #e9edf2;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .project-item:hover {
+            border-color: #cbd5e1;
+            transform: translateX(4px);
+            background: #ffffff;
+        }
+        .project-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #1a2c3e;
+        }
+        .project-item h4 i {
+            color: #2c6e9e;
+        }
+        .project-item p {
+            font-size: 0.85rem;
+            color: #5a6e8a;
+            margin-bottom: 0.9rem;
+        }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #2c6e9e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+        .project-link:hover {
+            gap: 0.7rem;
+            text-decoration: underline;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .contact-row:hover {
+            transform: translateX(4px);
+        }
+        .contact-row i {
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f2f8;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            color: #2c6e9e;
+        }
+        .copy-btn {
+            background: transparent;
+            border: none;
+            color: #7e8c9e;
+            cursor: pointer;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+        .copy-btn:hover {
+            color: #2c6e9e;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #eef2f6;
+            font-size: 0.8rem;
+            color: #7e8c9e;
+        }
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a2c3e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        @media (max-width: 860px) {
+            .hero {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            .hero-org { order: 2; }
+            .hero-avatar { order: 1; }
+            .hero-info { order: 3; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<div class="card hero">
-			<div class="hero-info">
-				<div class="greeting">
-					<i class="fas fa-hand-peace"></i> 墨虹 · 对外空间
-				</div>
-				<h1>墨虹 <span style="font-weight: 500; color: #5a6e8a;">(Mohong)</span></h1>
-				<div class="tagline">
-					<i class="fas fa-code"></i> 后端开发者
-					<span style="width: 4px; height: 4px; background: #cbd5e1; border-radius: 50%;"></span>
-					<i class="fas fa-users"></i> 社区发起人
-					<span style="width: 4px; height: 4px; background: #cbd5e1; border-radius: 50%;"></span>
-					<i class="fas fa-hand-sparkles"></i> 多元包容倡导者
-				</div>
-				<p style="color: #5a6e8a; line-height: 1.6;">
-					独立开发者，MHO组织发起人。热爱构建和谐有趣的组织环境，推动各类社区协同创新。
-				</p>
-				<div class="contact-buttons">
-					<a href="#contact" class="btn btn-primary" id="contactBtn"><i class="fas fa-paper-plane"></i> 联系我</a>
-					<a href="#" class="btn btn-outline" id="resumeMockBtn"><i class="fas fa-file-alt"></i> 简历概览</a>
-				</div>
-			</div>
+    <div class="container">
+        <!-- Hero 头部 -->
+        <div class="card hero">
+            <div class="hero-info">
+                <div class="greeting">
+                    <i class="fas fa-hand-peace"></i> 墨虹 · 对外空间
+                </div>
+                <h1>墨虹 <span style="font-weight: 500; color: #5a6e8a;">(Mohong)</span></h1>
+                <div class="tagline">
+                    <i class="fas fa-code"></i> 后端开发者
+                    <span style="width: 4px; height: 4px; background: #cbd5e1; border-radius: 50%;"></span>
+                    <i class="fas fa-users"></i> 社区发起人
+                    <span style="width: 4px; height: 4px; background: #cbd5e1; border-radius: 50%;"></span>
+                    <i class="fas fa-hand-sparkles"></i> 多元包容倡导者
+                </div>
+                <p style="color: #5a6e8a; line-height: 1.6;">
+                    独立开发者，MHO组织发起人。热爱构建和谐有趣的组织环境，推动各类社区协同创新。
+                </p>
+                <div class="contact-buttons">
+                    <a href="#contact" class="btn btn-primary" id="contactBtn"><i class="fas fa-paper-plane"></i> 联系我</a>
+                    <a href="#" class="btn btn-outline" id="resumeMockBtn"><i class="fas fa-file-alt"></i> 简历概览</a>
+                </div>
+            </div>
 
-			<div class="hero-org">
-				<div class="org-header">
-					<div class="org-svg-container">
-						<svg viewBox="-35 -35 70 70" xmlns="http://www.w3.org/2000/svg">
-							<style>
-								@keyframes frameBuild { 0% { stroke-dashoffset: 200; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
-								@keyframes structureBuild { 0% { stroke-dashoffset: 100; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
-								@keyframes detailBuild { 0% { stroke-dashoffset: 120; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
-								.frame-element { stroke-dasharray: 200; animation: frameBuild 2s ease forwards; opacity: 0; }
-								.structure-element { stroke-dasharray: 100; animation: structureBuild 1.6s ease forwards; opacity: 0; }
-								.detail-element { stroke-dasharray: 120; animation: detailBuild 1.3s ease forwards; opacity: 0; }
-								.layer-1 { animation-delay: 0s; } .layer-2 { animation-delay: 0.15s; } .layer-3 { animation-delay: 0.3s; }
-								.layer-4 { animation-delay: 0.45s; } .layer-5 { animation-delay: 0.6s; } .layer-6 { animation-delay: 0.75s; }
-							</style>
-							<g stroke="#2c3e50" stroke-width="1" fill="none">
-								<polygon class="frame-element layer-1" points="0,-30 30,0 0,30 -30,0" />
-								<line class="structure-element layer-2" x1="-30" y1="0" x2="30" y2="0" />
-								<line class="structure-element layer-2" x1="0" y1="-30" x2="0" y2="30" />
-								<rect class="detail-element layer-3" x="-15" y="-15" width="30" height="30" />
-								<line class="structure-element layer-3" x1="-15" y1="-15" x2="15" y2="15" />
-								<line class="structure-element layer-3" x1="-15" y1="15" x2="15" y2="-15" />
-								<rect class="detail-element layer-4" x="-10" y="-10" width="20" height="20" />
-								<line class="detail-element layer-5" x1="10" y1="10" x2="0" y2="30" />
-								<line class="detail-element layer-5" x1="10" y1="10" x2="30" y2="0" />
-								<line class="detail-element layer-5" x1="-10" y1="10" x2="0" y2="30" />
-								<line class="detail-element layer-5" x1="-10" y1="10" x2="-30" y2="0" />
-								<line class="detail-element layer-5" x1="-10" y1="-10" x2="0" y2="-30" />
-								<line class="detail-element layer-5" x1="-10" y1="-10" x2="-30" y2="0" />
-								<line class="detail-element layer-5" x1="10" y1="-10" x2="0" y2="-30" />
-								<line class="detail-element layer-5" x1="10" y1="-10" x2="30" y2="0" />
-								<line class="detail-element layer-6" x1="0" y1="10" x2="-15" y2="15" />
-								<line class="detail-element layer-6" x1="0" y1="10" x2="15" y2="15" />
-								<line class="detail-element layer-6" x1="10" y1="0" x2="15" y2="15" />
-								<line class="detail-element layer-6" x1="10" y1="0" x2="15" y2="-15" />
-								<line class="detail-element layer-6" x1="0" y1="-10" x2="15" y2="-15" />
-								<line class="detail-element layer-6" x1="0" y1="-10" x2="-15" y2="-15" />
-								<line class="detail-element layer-6" x1="-10" y1="0" x2="-15" y2="15" />
-								<line class="detail-element layer-6" x1="-10" y1="0" x2="-15" y2="-15" />
-							</g>
-						</svg>
-					</div>
-					<div>
-						<div class="org-title">MHO · 墨虹组织</div>
-						<div class="org-badge"><i class="fas fa-external-link-alt"></i> 官方网站</div>
-					</div>
-				</div>
-				<a href="https://mohong-chineydy.github.io/MHO/" target="_blank" rel="noopener noreferrer" class="btn btn-visit" id="visitMhoBtn" style="display: flex;">
-					<i class="fas fa-globe"></i> 访问 MHO 官网
-					<i class="fas fa-arrow-right"></i>
-				</a>
-				<div style="margin-top: 0.6rem; font-size: 0.7rem; color: #7e8c9e; text-align: center; word-break: break-all;">
-					<i class="fas fa-link"></i> mohong-chineydy.github.io/MHO
-				</div>
-			</div>
+            <div class="hero-org">
+                <div class="org-header">
+                    <div class="org-svg-container">
+                        <svg viewBox="-35 -35 70 70" xmlns="http://www.w3.org/2000/svg">
+                            <style>
+                                @keyframes frameBuild { 0% { stroke-dashoffset: 200; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
+                                @keyframes structureBuild { 0% { stroke-dashoffset: 100; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
+                                @keyframes detailBuild { 0% { stroke-dashoffset: 120; opacity: 0; } 100% { stroke-dashoffset: 0; opacity: 1; } }
+                                .frame-element { stroke-dasharray: 200; animation: frameBuild 2s ease forwards; opacity: 0; }
+                                .structure-element { stroke-dasharray: 100; animation: structureBuild 1.6s ease forwards; opacity: 0; }
+                                .detail-element { stroke-dasharray: 120; animation: detailBuild 1.3s ease forwards; opacity: 0; }
+                                .layer-1 { animation-delay: 0s; } .layer-2 { animation-delay: 0.15s; } .layer-3 { animation-delay: 0.3s; }
+                                .layer-4 { animation-delay: 0.45s; } .layer-5 { animation-delay: 0.6s; } .layer-6 { animation-delay: 0.75s; }
+                            </style>
+                            <g stroke="#2c3e50" stroke-width="1" fill="none">
+                                <polygon class="frame-element layer-1" points="0,-30 30,0 0,30 -30,0" />
+                                <line class="structure-element layer-2" x1="-30" y1="0" x2="30" y2="0" />
+                                <line class="structure-element layer-2" x1="0" y1="-30" x2="0" y2="30" />
+                                <rect class="detail-element layer-3" x="-15" y="-15" width="30" height="30" />
+                                <line class="structure-element layer-3" x1="-15" y1="-15" x2="15" y2="15" />
+                                <line class="structure-element layer-3" x1="-15" y1="15" x2="15" y2="-15" />
+                                <rect class="detail-element layer-4" x="-10" y="-10" width="20" height="20" />
+                                <line class="detail-element layer-5" x1="10" y1="10" x2="0" y2="30" />
+                                <line class="detail-element layer-5" x1="10" y1="10" x2="30" y2="0" />
+                                <line class="detail-element layer-5" x1="-10" y1="10" x2="0" y2="30" />
+                                <line class="detail-element layer-5" x1="-10" y1="10" x2="-30" y2="0" />
+                                <line class="detail-element layer-5" x1="-10" y1="-10" x2="0" y2="-30" />
+                                <line class="detail-element layer-5" x1="-10" y1="-10" x2="-30" y2="0" />
+                                <line class="detail-element layer-5" x1="10" y1="-10" x2="0" y2="-30" />
+                                <line class="detail-element layer-5" x1="10" y1="-10" x2="30" y2="0" />
+                                <line class="detail-element layer-6" x1="0" y1="10" x2="-15" y2="15" />
+                                <line class="detail-element layer-6" x1="0" y1="10" x2="15" y2="15" />
+                                <line class="detail-element layer-6" x1="10" y1="0" x2="15" y2="15" />
+                                <line class="detail-element layer-6" x1="10" y1="0" x2="15" y2="-15" />
+                                <line class="detail-element layer-6" x1="0" y1="-10" x2="15" y2="-15" />
+                                <line class="detail-element layer-6" x1="0" y1="-10" x2="-15" y2="-15" />
+                                <line class="detail-element layer-6" x1="-10" y1="0" x2="-15" y2="15" />
+                                <line class="detail-element layer-6" x1="-10" y1="0" x2="-15" y2="-15" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="org-title">MHO · 墨虹组织</div>
+                        <div class="org-badge"><i class="fas fa-external-link-alt"></i> 官方网站</div>
+                    </div>
+                </div>
+                <a href="https://mohong-chineydy.github.io/MHO/" target="_blank" rel="noopener noreferrer" class="btn btn-visit" id="visitMhoBtn" style="display: flex;">
+                    <i class="fas fa-globe"></i> 访问 MHO 官网
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div style="margin-top: 0.6rem; font-size: 0.7rem; color: #7e8c9e; text-align: center;">
+                    <i class="fas fa-link"></i> mohong-chineydy.github.io/MHO
+                </div>
+            </div>
 
-			<div class="hero-avatar">
-				<img class="avatar-img" src="https://mohong-chineydy.github.io/resource/AM/LOGO.jpg" alt="墨虹头像" onerror="this.onerror=null; this.src='https://placehold.co/148x148/eef2f8/5a6e8a?text=墨虹';">
-				<div>
-					<img src="https://raw.githubusercontent.com/Mohong-Chineydy/resource/main/AM/ASCII_LOGO.jpg" alt="个人logo" style="max-width: 100px; max-height: 40px; opacity: 0.7;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%2230%22%3E%3Ctext%20fill%3D%22%235a6e8a%22%3EMOHONG%3C%2Ftext%3E%3C%2Fsvg%3E';">
-				</div>
-			</div>
-		</div>
+            <div class="hero-avatar">
+                <img class="avatar-img" src="https://mohong-chineydy.github.io/resource/AM/LOGO.jpg" alt="墨虹头像" onerror="this.onerror=null; this.src='https://placehold.co/148x148/eef2f8/5a6e8a?text=墨虹';">
+                <div>
+                    <img src="https://raw.githubusercontent.com/Mohong-Chineydy/resource/main/AM/ASCII_LOGO.jpg" alt="个人logo" style="max-width: 100px; max-height: 40px; opacity: 0.7;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%22%20height%3D%2230%22%3E%3Ctext%20fill%3D%22%235a6e8a%22%3EMOHONG%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                </div>
+            </div>
+        </div>
 
-		<div class="grid-2col">
-			<div class="card" style="padding: 1.8rem;">
-				<div class="section-title">
-					<i class="fas fa-user-astronaut"></i>
-					<span>关于我 · 组织发起人</span>
-				</div>
-				<p style="line-height: 1.65; color: #5a6e8a;">墨虹，MHO组织创始人，后端程序开发者，社区维护者，以乌托邦为目标，全体系兼容为指导，努力创建多元包容文化集体</p>
-				<div class="section-title" style="margin-top: 1.8rem;">
-					<i class="fas fa-microchip"></i>
-					<span>核心领域</span>
-				</div>
-				<div class="skills-list">
-					<span class="skill-badge"><i class="fas fa-server"></i> 后端开发</span>
-					<span class="skill-badge"><i class="fas fa-code-branch"></i> 开源贡献</span>
-					<span class="skill-badge"><i class="fas fa-users"></i> 社区维护</span>
-					<span class="skill-badge"><i class="fas fa-handshake"></i> 社区贡献</span>
-				</div>
-			</div>
+        <!-- 两列布局：关于我 + 当前项目 -->
+        <div class="grid-2col">
+            <div class="card" style="padding: 1.8rem;">
+                <div class="section-title">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span>关于我 · 组织发起人</span>
+                </div>
+                <p style="line-height: 1.65; color: #5a6e8a;">墨虹，MHO组织创始人，后端程序开发者，社区维护者，以乌托邦为目标，全体系兼容为指导，努力创建多元包容文化集体</p>
+                <div class="section-title" style="margin-top: 1.8rem;">
+                    <i class="fas fa-microchip"></i>
+                    <span>核心领域</span>
+                </div>
+                <div class="skills-list">
+                    <span class="skill-badge"><i class="fas fa-server"></i> 后端开发</span>
+                    <span class="skill-badge"><i class="fas fa-code-branch"></i> 开源贡献</span>
+                    <span class="skill-badge"><i class="fas fa-users"></i> 社区维护</span>
+                    <span class="skill-badge"><i class="fas fa-handshake"></i> 社区贡献</span>
+                </div>
+            </div>
 
-			<div class="card" style="padding: 1.8rem;">
-				<div class="section-title">
-					<i class="fas fa-rocket"></i>
-					<span>当前项目</span>
-				</div>
-				<div class="project-grid">
-					<div class="project-item" data-project="MHO官网">
-						<h4><i class="fas fa-cube"></i> MHO官网 · 组织门户</h4>
-						<p>墨虹组织的官方网站，展示社区文化、活动与成员作品</p>
-						<a href="https://github.com/Mohong-Chineydy/MHO" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
-					</div>
+            <div class="card" style="padding: 1.8rem;">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i>
+                    <span>当前项目</span>
+                </div>
+                <div class="project-grid">
+                    <div class="project-item" data-project="MHO官网">
+                        <h4><i class="fas fa-cube"></i> MHO官网 · 组织门户</h4>
+                        <p>墨虹组织的官方网站，展示社区文化、活动与成员作品</p>
+                        <a href="https://github.com/Mohong-Chineydy/MHO" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
+                    </div>
+                    <div class="project-item" data-project="Resource仓库">
+                        <h4><i class="fas fa-cube"></i> Resource仓库 · 资源库</h4>
+                        <p>存储组织图片、Logo、静态资源的公共仓库</p>
+                        <a href="https://github.com/Mohong-Chineydy/resource" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
+                    </div>
+                    <div class="project-item" data-project="个人主页">
+                        <h4><i class="fas fa-cube"></i> 个人主页 · 数字名片</h4>
+                        <p>当前这个个人主页项目，展示个人信息与组织介绍</p>
+                        <a href="https://github.com/Mohong-Chineydy/Mohong-Chineydy" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
+                    </div>
+                    <div class="project-item" data-project="项目四">
+                        <h4><i class="fas fa-cube"></i> 项目四 · 待定</h4>
+                        <p>新项目筹备中，敬请期待</p>
+                        <a href="#" class="project-link project-placeholder"><i class="fas fa-external-link-alt"></i> 查看项目</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-					<div class="project-item" data-project="Resource仓库">
-						<h4><i class="fas fa-cube"></i> Resource仓库 · 资源库</h4>
-						<p>存储组织图片、Logo、静态资源的公共仓库</p>
-						<a href="https://github.com/Mohong-Chineydy/resource" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
-					</div>
+        <!-- 联系区域 - 独立卡片，不在任何卡片内部 -->
+        <div class="card" style="padding: 1.8rem; margin-bottom: 2rem;" id="contact">
+            <div class="section-title">
+                <i class="fas fa-envelope"></i>
+                <span>联系墨虹</span>
+            </div>
+            <div class="contact-info">
+                <div class="contact-row">
+                    <i class="fas fa-envelope"></i>
+                    <span>2141903341@qq.com</span>
+                    <button class="copy-btn" data-copy="2141903341@qq.com"><i class="fas fa-copy"></i> 复制</button>
+                </div>
+                <div class="contact-row">
+                    <i class="fas fa-envelope"></i>
+                    <span>MoHong304@outlook.com</span>
+                    <button class="copy-btn" data-copy="MoHong304@outlook.com"><i class="fas fa-copy"></i> 复制</button>
+                </div>
+                <div class="contact-row">
+                    <i class="fab fa-qq"></i>
+                    <span>QQ: 2141903341</span>
+                    <button class="copy-btn" data-copy="2141903341"><i class="fas fa-copy"></i> 复制</button>
+                </div>
+                <div class="contact-row">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Mohong-Chineydy" target="_blank" style="color: #5a6e8a; text-decoration: none;">github.com/Mohong-Chineydy</a>
+                </div>
+            </div>
+            <div style="margin-top:1.5rem; background: #f8fafd; border-radius: 1rem; padding: 1rem; text-align: center; border: 1px solid #eef2f6;">
+                <i class="fas fa-comment-dots" style="color: #2c6e9e;"></i> 欢迎交流 · 开放合作
+            </div>
+        </div>
 
-					<div class="project-item" data-project="个人主页">
-						<h4><i class="fas fa-cube"></i> 个人主页 · 数字名片</h4>
-						<p>当前这个个人主页项目，展示个人信息与组织介绍</p>
-						<a href="https://github.com/Mohong-Chineydy/Mohong-Chineydy" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> 查看项目</a>
-					</div>
+        <!-- 底部标语 -->
+        <div class="card" style="padding: 1.2rem; text-align: center; background: #f8fafd;">
+            <span style="font-weight: 500;">⚡ MHO — 让技术回归创造本质</span>
+        </div>
+        <div class="footer">© 2026 墨虹 · MHO组织 | 有您是我们的骄傲</div>
+    </div>
 
-					<div class="project-item" data-project="项目四">
-						<h4><i class="fas fa-cube"></i> 项目四 · 待定</h4>
-						<p>新项目筹备中，敬请期待</p>
-						<a href="#" class="project-link project-placeholder"><i class="fas fa-external-link-alt"></i> 查看项目</a>
-					</div>
-				</div>
-				<div class="card" style="padding: 1.8rem; margin-bottom: 2rem;" id="contact">
-					<div class="section-title">
-						<i class="fas fa-envelope"></i>
-						<span>联系墨虹</span>
-					</div>
-					<div class="contact-info">
-						<div class="contact-row">
-							<i class="fas fa-envelope"></i>
-							<span>2141903341@qq.com</span>
-							<button class="copy-btn" data-copy="2141903341@qq.com"><i class="fas fa-copy"></i> 复制</button>
-						</div>
-						<div class="contact-row">
-							<i class="fas fa-envelope"></i>
-							<span>MoHong304@outlook.com</span>
-							<button class="copy-btn" data-copy="MoHong304@outlook.com"><i class="fas fa-copy"></i> 复制</button>
-						</div>
-						<div class="contact-row">
-							<i class="fab fa-qq"></i>
-							<span>QQ: 2141903341</span>
-							<button class="copy-btn" data-copy="2141903341"><i class="fas fa-copy"></i> 复制</button>
-						</div>
-						<div class="contact-row">
-							<i class="fab fa-github"></i>
-							<a href="https://github.com/Mohong-Chineydy" target="_blank" style="color: #5a6e8a; text-decoration: none;">github.com/Mohong-Chineydy</a>
-						</div>
-					</div>
-					<div style="margin-top:1.5rem; background: #f8fafd; border-radius: 1rem; padding: 1rem; text-align: center; border: 1px solid #eef2f6;">
-						<i class="fas fa-comment-dots" style="color: #2c6e9e;"></i> 欢迎交流 · 开放合作
-					</div>
-				</div>
-
-				<div class="card" style="padding: 1.2rem; text-align: center; background: #f8fafd;">
-					<span style="font-weight: 500;">⚡ MHO — 让技术回归创造本质</span>
-				</div>
-				<div class="footer">© 2026 墨虹 · MHO组织 | 有您是我们的骄傲</div>
-			</div>
-
-			<script>
-				(function(){
-				    function showMessage(text) {
-				        let toast = document.createElement('div');
-				        toast.innerHTML = `<i class="fas fa-info-circle"></i> ${text}`;
-				        toast.className = 'toast-message';
-				        document.body.appendChild(toast);
-				        setTimeout(() => {
-				            toast.style.opacity = '0';
-				            toast.style.transform = 'translateX(-50%) translateY(20px)';
-				            toast.style.transition = 'all 0.3s';
-				            setTimeout(() => toast.remove(), 300);
-				        }, 2500);
-				    }
-				    
-				    document.querySelectorAll('.copy-btn').forEach(btn => {
-				        btn.addEventListener('click', async (e) => {
-				            e.preventDefault();
-				            const textToCopy = btn.getAttribute('data-copy');
-				            try {
-				                await navigator.clipboard.writeText(textToCopy);
-				                showMessage(`已复制: ${textToCopy}`);
-				            } catch (err) {
-				                showMessage('复制失败，请手动复制');
-				            }
-				        });
-				    });
-				    
-				    const resumeBtn = document.getElementById('resumeMockBtn');
-				    if(resumeBtn) {
-				        resumeBtn.addEventListener('click', (e) => {
-				            e.preventDefault();
-				            showMessage('墨虹简历：MHO发起人，后端开发者，社区维护者。详细履历可邮件交流。');
-				        });
-				    }
-				    
-				    const contactBtn = document.getElementById('contactBtn');
-				    if(contactBtn) {
-				        contactBtn.addEventListener('click', (e) => {
-				            e.preventDefault();
-				            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-				            setTimeout(() => showMessage('找到联系方式啦，期待交流～'), 500);
-				        });
-				    }
-				    
-				    const visitBtn = document.getElementById('visitMhoBtn');
-				    if(visitBtn) {
-				        visitBtn.addEventListener('click', () => {
-				            showMessage('正在前往 MHO 官方网站');
-				        });
-				    }
-				    
-				    document.querySelectorAll('.project-placeholder').forEach(link => {
-				        link.addEventListener('click', (e) => {
-				            e.preventDefault();
-				            const projectItem = link.closest('.project-item');
-				            const projectName = projectItem?.getAttribute('data-project') || '该项目';
-				            showMessage(`${projectName} 的链接正在筹备中，敬请期待`);
-				        });
-				    });
-				})();
-			</script>
+    <script>
+        (function(){
+            function showMessage(text) {
+                let toast = document.createElement('div');
+                toast.innerHTML = `<i class="fas fa-info-circle"></i> ${text}`;
+                toast.className = 'toast-message';
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(-50%) translateY(20px)';
+                    toast.style.transition = 'all 0.3s';
+                    setTimeout(() => toast.remove(), 300);
+                }, 2500);
+            }
+            
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    const textToCopy = btn.getAttribute('data-copy');
+                    try {
+                        await navigator.clipboard.writeText(textToCopy);
+                        showMessage(`已复制: ${textToCopy}`);
+                    } catch (err) {
+                        showMessage('复制失败，请手动复制');
+                    }
+                });
+            });
+            
+            const resumeBtn = document.getElementById('resumeMockBtn');
+            if(resumeBtn) {
+                resumeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showMessage('墨虹简历：MHO发起人，后端开发者，社区维护者。详细履历可邮件交流。');
+                });
+            }
+            
+            const contactBtn = document.getElementById('contactBtn');
+            if(contactBtn) {
+                contactBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => showMessage('找到联系方式啦，期待交流～'), 500);
+                });
+            }
+            
+            const visitBtn = document.getElementById('visitMhoBtn');
+            if(visitBtn) {
+                visitBtn.addEventListener('click', () => {
+                    showMessage('正在前往 MHO 官方网站');
+                });
+            }
+            
+            document.querySelectorAll('.project-placeholder').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const projectItem = link.closest('.project-item');
+                    const projectName = projectItem?.getAttribute('data-project') || '该项目';
+                    showMessage(`${projectName} 的链接正在筹备中，敬请期待`);
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>
